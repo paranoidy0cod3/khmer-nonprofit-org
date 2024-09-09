@@ -17,11 +17,11 @@ const menuItems = [
     label: 'About Us',
     link: '/about',
     submenus: [
-      { label: 'Mission & Vision', link: '/our-mission' },
-      { label: 'Strategic Direction', link: '/our-strategy' },
-      { label: 'Leadership', link: '/our-leadership' },
-      { label: 'Team', link: '/our-team' },
-      { label: 'History', link: '/our-history' },
+      { label: 'Mission & Vision', link: '/about' },
+      { label: 'Strategic Direction', link: '/about' },
+      { label: 'Leadership', link: '/about' },
+      { label: 'Team', link: '/about' },
+      { label: 'History', link: '/about' },
       { label: 'Contact Us', link: '/contact' },
     ],
   },
@@ -29,11 +29,11 @@ const menuItems = [
     label: 'Our Work',
     link: '/about',
     submenus: [
-      { label: 'Education & Work', link: '/education-and-work' },
-      { label: 'Inclusive Governance', link: '/inclusive-governance' },
-      { label: "Women's Economic Justice", link: '/womens-economic-justice' },
-      { label: 'Climate Justice', link: '' },
-      { label: 'Humanitarian', link: '/humanitarian' },
+      { label: 'Education & Work', link: '/our-work' },
+      { label: 'Inclusive Governance', link: '/our-work' },
+      { label: "Women's Economic Justice", link: '/our-work' },
+      { label: 'Climate Justice', link: '/our-work' },
+      { label: 'Humanitarian', link: '/' },
       
     ],
   },
@@ -41,11 +41,11 @@ const menuItems = [
     label: 'News & Events',
     link: '/blog',
     submenus: [
-      { label: 'Impact Stories', link: '/impact-stories' },
-      { label: 'Latest News', link: '/blog' },
-      { label: "Careers", link: '/careers' },
-      { label: 'Videos', link: '/videos' },
-      { label: 'Humanitarian', link: '/humanitarian' },
+      { label: 'Impact Stories', link: '/news-events' },
+      { label: 'Latest News', link: '/news-events/1' },
+      { label: "Careers", link: '/news-events' },
+      { label: 'Videos', link: '/news-events' },
+      { label: 'Humanitarian', link: '/news-events' },
       
     ],
   },
@@ -53,9 +53,9 @@ const menuItems = [
     label: 'Partnerships',
     link: '/partnerships',
     submenus: [
-      { label: 'Localization', link: '/localization' },
-      { label: 'Local Partners', link: '/local-partners' },
-      { label: "Funding Partners", link: '/funding-partners' },
+      { label: 'Localization', link: '/partnerships' },
+      { label: 'Local Partners', link: '/partnerships' },
+      { label: "Funding Partners", link: '/partnerships' },
       
       
     ],
@@ -64,9 +64,9 @@ const menuItems = [
     label: 'Resources',
     link: '/resources',
     submenus: [
-      { label: 'Publications', link: '/publications' },
-      { label: 'Tools', link: '/tools' },
-      { label: 'Guidelines', link: '/guidelines' },
+      { label: 'Publications', link: '/' },
+      { label: 'Tools', link: '/' },
+      { label: 'Guidelines', link: '/' },
     ],
   },
   
