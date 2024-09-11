@@ -7,6 +7,8 @@ import NewsEventsPage from "./NewsEventsPage";
 import PartnershipsPage from "./PartnershipsPage";
 import ContactPage from "./ContactPage";
 import SingleNewsEventPage from "./SingleNewsEventPage";
+import Dashboard from "./Dashboard";
+import LoginPage from "./LoginPage";
 export {
   HomePage,
   About,
@@ -17,4 +19,6 @@ export {
   PartnershipsPage,
   ContactPage,
   SingleNewsEventPage,
+  Dashboard,
+  LoginPage,
 };
