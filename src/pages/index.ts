@@ -9,6 +9,12 @@ import ContactPage from "./ContactPage";
 import SingleNewsEventPage from "./SingleNewsEventPage";
 import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
+import DonationPage from "./DonationPage";
+import ThankYouPage from "./ThankYouPage";
+import BlogPage from "./BlogPage";
+import SingleBlogPost from "./SingleBlogPost";
+import CausesPage from "./CausePage";
+import SingleCausePage from "./SingleCausePage";
 export {
   HomePage,
   About,
@@ -21,4 +27,10 @@ export {
   SingleNewsEventPage,
   Dashboard,
   LoginPage,
+  DonationPage,
+  ThankYouPage,
+  BlogPage,
+  SingleBlogPost,
+  CausesPage,
+  SingleCausePage,
 };

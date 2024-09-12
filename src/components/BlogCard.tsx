@@ -3,30 +3,40 @@ import { Link } from 'react-router-dom'
 import { LuClock9 } from "react-icons/lu";
 import { FaPen } from 'react-icons/fa';
 
-const BlogCard = ({detailLink, image, title, description, donateLink}) => {
+interface BlogCardProps {
+  detailLink: string;
+  image: string;
+  title: string;
+  description: string;
+  date?: string;
+  author?: string;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({ detailLink, image, title, description, date, author }) => {
   return (
-    <div className="block">
-      <div className="max-w-md mx-auto rounded-lg  md:p-4 p-2">
-        <img
-          src={image}
-          alt="Cause Image"
-          className="w-full h-48 object-cover rounded-t-lg"
-        />
-        <div className="p-4 md:p-6">
-          <h2 className="text-xl font-bold ">{title}</h2>
-          <div className='flex gap-2 items-center justify-center'>
-            <LuClock9 className='text-orange-500 text-sm inline-block mt-[-15px]' />
-            <p className=" mb-4 text-sm">03 Dec, 2024</p>
-            <FaPen className='text-orange-500 text-sm inline-block mt-[-15px]' />
-            <p className="text-sm mb-4">Admin</p>
-          </div>
-          <p className="text-sm my-4">{description}</p>
-          
-          </div>
+    <div className="max-w-md mx-auto rounded-lg overflow-hidden shadow-lg">
+      <img
+        src={image}
+        alt={`${title} thumbnail`}
+        className="w-full h-48 object-cover"
+      />
+      <div className="p-6">
+        <h2 className="text-xl font-bold mb-2">{title}</h2>
+        <div className='flex items-center text-sm text-gray-600 mb-4'>
+          <LuClock9 className='text-orange-500 mr-1' />
+          <span className="mr-4">{date}</span>
+          <FaPen className='text-orange-500 mr-1' />
+          <span>{author}</span>
         </div>
+        <p className="text-gray-700 text-sm mb-4">{description}</p>
+        <Link 
+          to={detailLink} 
+          className="inline-block bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 transition duration-300"
+        >
+          Read More
+        </Link>
       </div>
-      
-    
+    </div>
   )
 }
 

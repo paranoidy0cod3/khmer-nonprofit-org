@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# khmer-nonprofit-org
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Modern React TypeScript Tailwind CSS Project for Nonprofit Organizations
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+khmer-nonprofit-org is a React TypeScript project with Tailwind CSS styling, designed to provide a modern and functional website for nonprofit organizations in Cambodia. It features a user-friendly interface, content management capabilities, and secure donation functionality.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Beautiful and Responsive Design: Tailwind CSS ensures a visually appealing and mobile-friendly experience.
+- Content Management System (CMS): Manage content easily through the intuitive dashboard.
+- User Management: Create and manage user accounts (optional, depending on your organization's needs).
+- Secure Donation Page: Accept donations securely with integrated payment processing.
+- Localization: Built for potential Khmer language support (custom implementation required).
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Prerequisites:
+Node.js (version 14 or later) and npm (or yarn) installed on your system.
+Basic understanding of React, TypeScript, and Tailwind CSS.
+Clone the Repository:
+Bash
+git clone https://github.com/paranoidy0cod3/khmer-nonprofit-org.git
+Use code with caution.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Install Dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+````Bash
+cd khmer-nonprofit-org
+npm install  # or yarn install
+Use code with caution.```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Start the Development Server:
+Bash
+npm start  # or yarn start
+Use code with caution.
+
+This will start the development server, typically accessible at http://localhost:3000 by default.  
+````

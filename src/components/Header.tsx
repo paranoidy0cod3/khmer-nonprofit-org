@@ -6,77 +6,80 @@ import { MdEmail } from "react-icons/md";
 import { IoSearchOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineLeft, AiOutlineClose } from "react-icons/ai";
-import { FaFacebookF, FaYoutube, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaYoutube,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 
+interface MenuItem {
+  label: string;
+  link: string;
+  submenus?: { label: string; link: string }[]; // Add this line
+}
+const menuItems: MenuItem[] = [
+  {
+    label: "About Us",
+    link: "/about",
+    submenus: [
+      { label: "Mission & Vision", link: "/about" },
+      { label: "Strategic Direction", link: "/about" },
+      { label: "Leadership", link: "/about" },
+      { label: "Team", link: "/about" },
+      { label: "History", link: "/about" },
+      { label: "Contact Us", link: "/contact" },
+    ],
+  },
+  {
+    label: "Our Work",
+    link: "/about",
+    submenus: [
+      { label: "Education & Work", link: "/our-work" },
+      { label: "Inclusive Governance", link: "/our-work" },
+      { label: "Women's Economic Justice", link: "/our-work" },
+      { label: "Climate Justice", link: "/our-work" },
+      { label: "Humanitarian", link: "/" },
+    ],
+  },
+  {
+    label: "News & Events",
+    link: "/blog",
+    submenus: [
+      { label: "Impact Stories", link: "/news-events" },
+      { label: "Latest News", link: "/news-events/" },
+      { label: "Careers", link: "/news-events" },
+      { label: "Videos", link: "/news-events" },
+      { label: "Humanitarian", link: "/news-events" },
+    ],
+  },
+  {
+    label: "Partnerships",
+    link: "/partnerships",
+    submenus: [
+      { label: "Localization", link: "/partnerships" },
+      { label: "Local Partners", link: "/partnerships" },
+      { label: "Funding Partners", link: "/partnerships" },
+    ],
+  },
+  {
+    label: "Resources",
+    link: "/resources",
+    submenus: [
+      { label: "Publications", link: "/" },
+      { label: "Tools", link: "/" },
+      { label: "Guidelines", link: "/" },
+    ],
+  },
 
-
-
-const menuItems = [
-  {
-    label: 'About Us',
-    link: '/about',
-    submenus: [
-      { label: 'Mission & Vision', link: '/about' },
-      { label: 'Strategic Direction', link: '/about' },
-      { label: 'Leadership', link: '/about' },
-      { label: 'Team', link: '/about' },
-      { label: 'History', link: '/about' },
-      { label: 'Contact Us', link: '/contact' },
-    ],
-  },
-  {
-    label: 'Our Work',
-    link: '/about',
-    submenus: [
-      { label: 'Education & Work', link: '/our-work' },
-      { label: 'Inclusive Governance', link: '/our-work' },
-      { label: "Women's Economic Justice", link: '/our-work' },
-      { label: 'Climate Justice', link: '/our-work' },
-      { label: 'Humanitarian', link: '/' },
-      
-    ],
-  },
-  {
-    label: 'News & Events',
-    link: '/blog',
-    submenus: [
-      { label: 'Impact Stories', link: '/news-events' },
-      { label: 'Latest News', link: '/news-events/1' },
-      { label: "Careers", link: '/news-events' },
-      { label: 'Videos', link: '/news-events' },
-      { label: 'Humanitarian', link: '/news-events' },
-      
-    ],
-  },
-  {
-    label: 'Partnerships',
-    link: '/partnerships',
-    submenus: [
-      { label: 'Localization', link: '/partnerships' },
-      { label: 'Local Partners', link: '/partnerships' },
-      { label: "Funding Partners", link: '/partnerships' },
-      
-      
-    ],
-  },
-  {
-    label: 'Resources',
-    link: '/resources',
-    submenus: [
-      { label: 'Publications', link: '/' },
-      { label: 'Tools', link: '/' },
-      { label: 'Guidelines', link: '/' },
-    ],
-  },
-  
   // Add more menu items here...
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
+  const [activeMenu, setActiveMenu] = useState<MenuItem | null>(null);
+  const [openSubmenuIndex, setOpenSubmenuIndex] = useState<number | null>(null);
   const [submenuTimeout, setSubmenuTimeout] = useState(null);
 
   const toggleMenu = () => {
@@ -84,15 +87,14 @@ const Header = () => {
     setActiveMenu(null);
   };
 
-  const openSubMenu = (menu) => {
+  const openSubMenu = (menu: MenuItem) => {
     setActiveMenu(menu);
   };
-
   const goBackToMainMenu = () => {
     setActiveMenu(null);
   };
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index: number | null) => {
     if (submenuTimeout) {
       clearTimeout(submenuTimeout);
       setSubmenuTimeout(null);
@@ -101,10 +103,10 @@ const Header = () => {
   };
 
   const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
+    const timeout: NodeJS.Timeout = setTimeout(() => {
       setOpenSubmenuIndex(null);
     }, 200);
-    setSubmenuTimeout(timeout);
+    setSubmenuTimeout(timeout as any);
   };
 
   return (
@@ -117,8 +119,7 @@ const Header = () => {
             <button>Khmer</button>
           </div>
           <div className="flex gap-3 justify-center flex-wrap text-center md:text-left ">
-            <Link to="/faq">FAQ</Link> |
-            <Link to="/">What We Do</Link> |
+            <Link to="/faq">FAQ</Link> |<Link to="/">What We Do</Link> |
             <Link to="/faq">Our Story</Link> |
             <Link to="/faq">Be A Volunteer</Link> |
             <Link to="/faq">Contact Us</Link>
@@ -132,6 +133,7 @@ const Header = () => {
 
         {/* Logo and Contact Info */}
         <div className="flex flex-wrap justify-between items-center py-4 text-white">
+          <Link to={"/"}>
           <div className="font-bold md:text-2xl">
             <div className="flex items-center">
               <TiWorld size={50} className="inline-block" />
@@ -139,6 +141,7 @@ const Header = () => {
             </div>
             <p className="ml-16 mt-[-10px] md:ml-14 text-sm">Because We Care</p>
           </div>
+          </Link>
           <div className="hidden md:flex items-center gap-4">
             <p>
               <MdOutlinePhone className="inline-block" /> 0123456789
@@ -199,7 +202,7 @@ const Header = () => {
                   Back
                 </button>
                 <ul className="flex flex-col gap-4">
-                  {activeMenu.submenus.map((submenu, subIndex) => (
+                  {activeMenu?.submenus?.map((submenu, subIndex) => (
                     <li key={subIndex}>
                       <Link to={submenu.link} onClick={toggleMenu}>
                         {submenu.label}
@@ -230,14 +233,18 @@ const Header = () => {
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  {menuItem.label} <IoMdArrowDropdown className="inline-block" />
+                  {menuItem.label}{" "}
+                  <IoMdArrowDropdown className="inline-block" />
                   <ul
                     className={`absolute left-0 top-full bg-gray-800 bg-opacity-90 z-50 ${
                       openSubmenuIndex === index ? "block" : "hidden"
                     } text-sm mt-1 w-full shadow-lg transition-all duration-300 ease-in-out`}
                   >
-                    {menuItem.submenus.map((submenu, subIndex) => (
-                      <li key={subIndex} className="py-2 px-4 hover:bg-slate-600">
+                    {menuItem.submenus?.map((submenu, subIndex) => (
+                      <li
+                        key={subIndex}
+                        className="py-2 px-4 hover:bg-slate-600"
+                      >
                         <Link to={submenu.link}>{submenu.label}</Link>
                       </li>
                     ))}

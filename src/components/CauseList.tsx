@@ -116,7 +116,7 @@ const CauseList = () => {
     },
   ];
     const [currentIndex, setCurrentIndex] = useState(0);
-    const autoSlideRef = useRef(null);
+    const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
     const totalSlides = Math.ceil(causes.length / 4); // Number of slides based on 4 cards at a time
 
     const handleSlide = (direction:any)  =>  {
@@ -129,7 +129,9 @@ const CauseList = () => {
     };
 
     const stopAutoSlide = () => {
-        clearInterval(autoSlideRef.current);
+        if (autoSlideRef.current !== null) {
+            clearInterval(autoSlideRef.current);
+        }
     };
 
     useEffect(() => {
@@ -137,7 +139,7 @@ const CauseList = () => {
         return () => stopAutoSlide(); // Clear on unmount
     }, [currentIndex]);
 
-    const handleSwipe = (direction) => {
+    const handleSwipe = (direction: 'left' | 'right') => {
         stopAutoSlide();
         handleSlide(direction === 'left' ? 'left' : 'right');
         startAutoSlide(); // Resume auto-sliding after manual swipe

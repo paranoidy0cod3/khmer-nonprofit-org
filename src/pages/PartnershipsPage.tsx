@@ -1,7 +1,13 @@
 import React from 'react';
 import { FaHandshake, FaGlobe, FaUsers } from 'react-icons/fa';
 
-const PartnerCard = ({ name, description, imageUrl }) => (
+type PartnerCardProps = {
+  name: string;
+  description: string;
+  imageUrl: string;
+};
+
+const PartnerCard: React.FC<PartnerCardProps> = ({ name, description, imageUrl }) => (
   <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
     <img src={imageUrl} alt={name} className="w-32 h-32 object-cover rounded-full mb-4" />
     <h3 className="text-xl font-semibold mb-2">{name}</h3>

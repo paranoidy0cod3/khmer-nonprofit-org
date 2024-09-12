@@ -2,14 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaHandHoldingHeart, FaGraduationCap, FaTree, FaUsers } from 'react-icons/fa';
 
-const FeatureCard = ({ icon, title, description }) => (
+interface FeatureCardProps {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+}
+
+const FeatureCard = ({ icon, title, description }: FeatureCardProps) => (
   <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
     <div className="text-4xl text-sky-600 mb-4">{icon}</div>
     <h3 className="text-xl font-semibold mb-2 text-slate-700">{title}</h3>
     <p className="text-slate-600">{description}</p>
   </div>
 );
-
 const HomePage = () => {
   return (
     <div className="bg-sky-100 min-h-screen">

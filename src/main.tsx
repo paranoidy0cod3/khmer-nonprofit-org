@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
-import {HomePage, About, AboutUsPage, ContactPage, Home, NewsEventsPage, OurWorkPage, PartnershipsPage, SingleNewsEventPage, Dashboard, LoginPage} from "./pages/index.ts"
+import {HomePage, About, AboutUsPage, ContactPage, Home, NewsEventsPage, OurWorkPage, PartnershipsPage, SingleNewsEventPage, Dashboard, LoginPage, DonationPage, ThankYouPage, BlogPage, SingleBlogPost, CausesPage, SingleCausePage} from "./pages/index.ts"
 // import HomePage from './pages/HomePage.tsx'
 
 const isAuthenticated = () => {
@@ -51,8 +51,36 @@ const router = createBrowserRouter([
         element: <ContactPage />
       },
       {
-        path:"/news-events/:id",
+        path:"/news/:id",
         element: <SingleNewsEventPage />
+      },
+      {
+        path:"/events/:id",
+        element: <SingleNewsEventPage />
+      },
+      {
+        path:"/blog",
+        element: <BlogPage />
+      },
+      {
+        path:"/blog/:id",
+        element: <SingleBlogPost />
+      },
+      {
+        path:"/causes",
+        element: <CausesPage />
+      },
+      {
+        path:"/causes/:id",
+        element: <SingleCausePage />
+      },
+      {
+        path:"/donate",
+        element: <DonationPage />
+      },
+      {
+        path:"/success",
+        element: <ThankYouPage donorName="John Doe" amount={100} donationId="12345"  />
       },
       
     ],

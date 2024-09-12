@@ -5,6 +5,16 @@ import { Link } from 'react-router-dom';
 
 import { FaRegNewspaper } from "react-icons/fa6";
 
+interface Cause {
+  image: string;
+  title: string;
+  description: string;
+  progress: number;
+  targetAmount: number;
+  donateLink: string;
+  detailLink: string;
+}
+
 const BlogList = () => {
   const causes = [
     {
@@ -117,7 +127,7 @@ const BlogList = () => {
     },
   ];
     const [currentIndex, setCurrentIndex] = useState(0);
-    const autoSlideRef = useRef(null);
+    const autoSlideRef: React.MutableRefObject<NodeJS.Timeout | null> = useRef(null);
     const totalSlides = Math.ceil(causes.length / 4); // Number of slides based on 4 cards at a time
 
     const handleSlide = (direction:any)  =>  {
@@ -130,7 +140,9 @@ const BlogList = () => {
     };
 
     const stopAutoSlide = () => {
-        clearInterval(autoSlideRef.current);
+        if (autoSlideRef.current !== null) {
+            clearInterval(autoSlideRef.current);
+        }
     };
 
     useEffect(() => {
@@ -138,7 +150,7 @@ const BlogList = () => {
         return () => stopAutoSlide(); // Clear on unmount
     }, [currentIndex]);
 
-    const handleSwipe = (direction) => {
+    const handleSwipe = (direction: 'left' | 'right') => {
         stopAutoSlide();
         handleSlide(direction === 'left' ? 'left' : 'right');
         startAutoSlide(); // Resume auto-sliding after manual swipe
@@ -174,7 +186,9 @@ const BlogList = () => {
             <div className="cause-list-wrapper flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {causes.map((cause, index) => (
                     <div key={index} className="cause-card-wrapper flex-shrink-0 w-full md:w-1/3 p-4">
-                        <BlogCard {...cause} />
+                        <Link to={"/blog"}>
+                        <BlogCard  {...cause} />
+                        </Link>
                     </div>
                 ))}
             </div>

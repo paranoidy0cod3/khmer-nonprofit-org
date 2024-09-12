@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { FaCalendar, FaMapMarkerAlt, FaClock, FaUser } from 'react-icons/fa';
 
 // This would typically come from an API or props
-const getDummyData = (id) => ({
+const getDummyData = (id:any) => ({
   id,
   title: "Empowering Rural Youth Through Education",
   type: "news", // or "event"

@@ -30,9 +30,9 @@ const TestimonialCarousel = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const autoSlideRef = useRef(null);
+  const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleSlide = (direction) => {
+  const handleSlide = (direction: 'left' | 'right') => {
     const newIndex = (direction === 'left') 
       ? (currentIndex + 1) % testimonials.length 
       : (currentIndex - 1 + testimonials.length) % testimonials.length;
@@ -44,7 +44,9 @@ const TestimonialCarousel = () => {
   };
 
   const stopAutoSlide = () => {
-    clearInterval(autoSlideRef.current);
+    if (autoSlideRef.current !== null) {
+      clearInterval(autoSlideRef.current);
+    }
   };
 
   useEffect(() => {
