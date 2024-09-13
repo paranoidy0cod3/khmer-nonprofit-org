@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import { BlogCard, CauseCard } from "../components";
+import { BlogCard, } from "../components";
 import { Link } from 'react-router-dom';
 
 import { FaRegNewspaper } from "react-icons/fa6";
 
-interface Cause {
-  image: string;
-  title: string;
-  description: string;
-  progress: number;
-  targetAmount: number;
-  donateLink: string;
-  detailLink: string;
-}
+// interface Cause {
+//   image: string;
+//   title: string;
+//   description: string;
+//   progress: number;
+//   targetAmount: number;
+//   donateLink: string;
+//   detailLink: string;
+// }
 
 const BlogList = () => {
   const causes = [

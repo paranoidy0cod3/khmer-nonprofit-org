@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Bell, ChevronDown, ChevronLeft, ChevronRight, Menu, Pencil, Plus, Search, Share2, Trash2 } from 'lucide-react'
+// import { Bell, ChevronDown, ChevronLeft, ChevronRight, Menu, Pencil, Plus, Search, Share2, Trash2 } from 'lucide-react'
 
 // Define types for our data
 interface User {
@@ -86,54 +86,54 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick, user }) => (
-  <header className="bg-white shadow-sm lg:static lg:overflow-y-visible">
-    {/* Header content */}
+  <header onClick={onMenuClick} className="bg-white shadow-sm lg:static lg:overflow-y-visible">
+    {/* Header content */} {user.name}
   </header>
 )
 
-interface TabButtonProps {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}
+// interface TabButtonProps {
+//   active: boolean;
+//   onClick: () => void;
+//   children: React.ReactNode;
+// }
 
-const TabButton: React.FC<TabButtonProps> = ({ active, onClick, children }) => (
-  <button
-    className={`px-4 py-2 font-medium text-sm rounded-md ${
-      active ? 'bg-gray-100 text-gray-700' : 'text-gray-500 hover:text-gray-700'
-    }`}
-    onClick={onClick}
-  >
-    {children}
-  </button>
-)
+// const TabButton: React.FC<TabButtonProps> = ({ active, onClick, children }) => (
+//   <button
+//     className={`px-4 py-2 font-medium text-sm rounded-md ${
+//       active ? 'bg-gray-100 text-gray-700' : 'text-gray-500 hover:text-gray-700'
+//     }`}
+//     onClick={onClick}
+//   >
+//     {children}
+//   </button>
+// )
 
-interface CardProps {
-  title: string;
-  children: React.ReactNode;
-}
+// interface CardProps {
+//   title: string;
+//   children: React.ReactNode;
+// }
 
-const Card: React.FC<CardProps> = ({ title, children }) => (
-  <div className="bg-white overflow-hidden shadow rounded-lg">
-    <div className="px-4 py-5 sm:p-6">{children}</div>
-  </div>
-)
+// const Card: React.FC<CardProps> = ({ title, children }) => (
+//   <div className="bg-white overflow-hidden shadow rounded-lg">
+//     <div className="px-4 py-5 sm:p-6">{children}</div>
+//   </div>
+// )
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  children: React.ReactNode;
-}
+// interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+//   className?: string;
+//   children: React.ReactNode;
+// }
 
-const Button: React.FC<ButtonProps> = ({ onClick, className, children, ...props }) => (
-  <button
-    type="button"
-    className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${className}`}
-    onClick={onClick}
-    {...props}
-  >
-    {children}
-  </button>
-)
+// const Button: React.FC<ButtonProps> = ({ onClick, className, children, ...props }) => (
+//   <button
+//     type="button"
+//     className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${className}`}
+//     onClick={onClick}
+//     {...props}
+//   >
+//     {children}
+//   </button>
+// )
 
 interface ModalProps {
   isOpen: boolean;
@@ -152,17 +152,17 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   )
 }
 
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+// interface PaginationProps {
+//   currentPage: number;
+//   totalPages: number;
+//   onPageChange: (page: number) => void;
+// }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => (
-  <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-    {/* Pagination content */}
-  </div>
-)
+// const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => (
+//   <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+//     {/* Pagination content */}
+//   </div>
+// )
 
 interface UserFormProps {
   user: User | null;
@@ -178,6 +178,10 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSave, onCancel }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     onSave({ id: user?.id || 0, name, email, role })
+    setName('')
+    setEmail('')
+    setRole('')
+    onCancel()
   }
 
   return (
@@ -201,6 +205,10 @@ const NewsForm: React.FC<NewsFormProps> = ({ news, onSave, onCancel }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     onSave({ id: news?.id || 0, title, date, content })
+    setTitle('')
+    setDate('')
+    setContent('')
+    onCancel()
   }
 
   return (
@@ -224,6 +232,10 @@ const EventForm: React.FC<EventFormProps> = ({ event, onSave, onCancel }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     onSave({ id: event?.id || 0, title, date, description })
+    setTitle('')
+    setDate('')
+    setDescription('')
+    onCancel()
   }
 
   return (
@@ -241,9 +253,9 @@ const Dashboard: React.FC = () => {
   const [editingUser, setEditingUser] = useState<User | null>(null)
   const [editingNews, setEditingNews] = useState<NewsItem | null>(null)
   const [editingEvent, setEditingEvent] = useState<Event | null>(null)
-  const [currentPage, setCurrentPage] = useState({ users: 1, news: 1, events: 1 })
-  const [activeTab, setActiveTab] = useState('users')
-  const itemsPerPage = 10
+  // const [currentPage, setCurrentPage] = useState({ users: 1, news: 1, events: 1 })
+  // const [activeTab, setActiveTab] = useState('users')
+  // const itemsPerPage = 10
 
   // Mock logged-in user
   const loggedInUser = {
@@ -251,15 +263,15 @@ const Dashboard: React.FC = () => {
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
   }
 
-  const paginatedData = <T extends User | NewsItem | Event>(data: T[], page: number): T[] => {
-    const start = (page - 1) * itemsPerPage
-    const end = start + itemsPerPage
-    return data.slice(start, end)
-  }
+  // const paginatedData = <T extends User | NewsItem | Event>(data: T[], page: number): T[] => {
+  //   const start = (page - 1) * itemsPerPage
+  //   const end = start + itemsPerPage
+  //   return data.slice(start, end)
+  // }
 
-  const handlePageChange = (type: string, page: number) => {
-    setCurrentPage(prev => ({ ...prev, [type]: page }))
-  }
+  // const handlePageChange = (type: string, page: number) => {
+  //   setCurrentPage(prev => ({ ...prev, [type]: page }))
+  // }
 
   const handleCreateUser = (newUser: User) => {
     setUsers([...users, { ...newUser, id: users.length + 1 }])
@@ -271,9 +283,9 @@ const Dashboard: React.FC = () => {
     setEditingUser(null)
   }
 
-  const handleDeleteUser = (userId: number) => {
-    setUsers(users.filter(user => user.id !== userId))
-  }
+  // const handleDeleteUser = (userId: number) => {
+  //   setUsers(users.filter(user => user.id !== userId))
+  // }
 
   const handleCreateNews = (newNews: NewsItem) => {
     setNews([...news, { ...newNews, id: news.length + 1 }])
@@ -285,9 +297,9 @@ const Dashboard: React.FC = () => {
     setEditingNews(null)
   }
 
-  const handleDeleteNews = (newsId: number) => {
-    setNews(news.filter(item => item.id !== newsId))
-  }
+  // const handleDeleteNews = (newsId: number) => {
+  //   setNews(news.filter(item => item.id !== newsId))
+  // }
 
   const handleCreateEvent = (newEvent: Event) => {
     setEvents([...events, { ...newEvent, id: events.length + 1 }])
@@ -299,14 +311,14 @@ const Dashboard: React.FC = () => {
     setEditingEvent(null)
   }
 
-  const handleDeleteEvent = (eventId: number) => {
-    setEvents(events.filter(event => event.id !== eventId))
-  }
+  // const handleDeleteEvent = (eventId: number) => {
+  //   setEvents(events.filter(event => event.id !== eventId))
+  // }
 
-  const handleShare = (item: User | NewsItem | Event) => {
-    // Implement sharing functionality here
-    console.log('Sharing:', item)
-  }
+  // const handleShare = (item: User | NewsItem | Event) => {
+  //   // Implement sharing functionality here
+  //   console.log('Sharing:', item)
+  // }
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">

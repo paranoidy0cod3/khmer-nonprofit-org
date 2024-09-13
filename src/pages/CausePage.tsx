@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Heart, Users, DollarSign, ArrowRight, Globe, Droplet, Sun, ChevronDown } from 'lucide-react'
+import {  Users,  Globe, Droplet,  ChevronDown } from 'lucide-react'
 
 interface Cause {
   id: string

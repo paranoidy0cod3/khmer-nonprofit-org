@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FaCalendarAlt, FaNewspaper, FaChevronRight } from 'react-icons/fa';
+import  { useState } from 'react';
+import { FaCalendarAlt,  FaChevronRight } from 'react-icons/fa';
 
 const NewsEventsPage = () => {
   const [activeTab, setActiveTab] = useState('news');

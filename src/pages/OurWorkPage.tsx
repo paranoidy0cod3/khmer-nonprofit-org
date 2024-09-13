@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { FaGraduationCap, FaHandHoldingHeart, FaTree, FaUsers, FaChevronRight } from 'react-icons/fa';
 
 const OurWorkPage = () => {

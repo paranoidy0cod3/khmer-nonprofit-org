@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const SearchBar = () => {
   const [keywords, setKeywords] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     // Handle search logic here, e.g., call an API with keywords and category
     console.log('Keywords:', keywords);

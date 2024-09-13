@@ -3,6 +3,59 @@ import { BlogList, Carausel, CauseList, SearchBar, TeamList, TestimonialCarousel
 import { Link } from "react-router-dom"
 import { GrAnnounce } from "react-icons/gr";
 
+const StorySection = () => (
+  <div className="relative overflow-hidden rounded-lg shadow-lg">
+    <img
+      src="https://cdn.pixabay.com/photo/2017/04/06/06/17/children-2207341_1280.jpg"
+      alt="Children"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-end">
+      <h2 className="text-xl font-bold mb-2 text-white">Story About Us</h2>
+      <h2 className="text-3xl font-bold mb-4 text-white">Who we are?</h2>
+      <p className="text-lg text-white mb-4">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis tempora mollitia error, totam rem dolorum. Pariatur excepturi ex dolorem accusamus?
+      </p>
+      <Link to="/about" className="text-sky-400 hover:text-sky-500 flex items-center">
+        Learn More <FaArrowCircleRight className="ml-2" />
+      </Link>
+    </div>
+  </div>
+);
+
+const UrgentCauseSection = () => (
+  <div className="relative overflow-hidden rounded-lg shadow-lg">
+    <img
+      src="https://cdn.pixabay.com/photo/2022/08/21/03/48/smile-7400381_1280.jpg"
+      alt="Smiling child"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black bg-opacity-50 p-6 flex flex-col justify-between">
+      <div>
+        <h2 className="text-xl font-bold mb-2 text-white">Urgent Cause</h2>
+        <h2 className="text-3xl font-bold mb-4 text-white">Send Children to School</h2>
+        <p className="text-lg text-white mb-4">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis tempora mollitia error, totam rem dolorum. Pariatur excepturi ex dolorem accusamus?
+        </p>
+        <Link to="/about" className="text-sky-400 hover:text-sky-500 flex items-center">
+          Learn More <FaArrowCircleRight className="ml-2" />
+        </Link>
+      </div>
+      <div>
+        <div className="bg-white bg-opacity-20 h-2 rounded-full mb-2">
+          <div className="bg-orange-500 h-full rounded-full w-4/5"></div>
+        </div>
+        <div className="flex justify-between items-center">
+          <h4 className="text-white font-semibold">80% Donated / $ 5,000 To Go</h4>
+          <Link to="/donate" className="bg-sky-400 hover:bg-sky-500 text-white px-6 py-2 rounded">
+            Donate
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 
 const Home = () => {
   return (
@@ -15,30 +68,11 @@ const Home = () => {
 
         {/* story about us */}
        <div className="flex items-center justify-between my-8 gap-4 flex-wrap md:flex-nowrap ">
-        <div className="max-w-lg p-6" style={{backgroundImage: "url('https://cdn.pixabay.com/photo/2017/04/06/06/17/children-2207341_1280.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} >
-          <h2 className="text-xl font-bold mb-4 underline text-white">Story About Us</h2>
-          <h2 className="text-3xl font-bold mb-4 text-slate-200">Who we are?</h2>
-          <p className="text-lg  bg-slate-900 text-white p-4 opacity-50">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis tempora mollitia error, totam rem dolorum. Pariatur excepturi ex dolorem accusamus?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, nihil!  </p>
-          <Link to="/about" className="text-slate-900 hover:text-sky-500">  Learn More... <FaArrowCircleRight className="inline ml-4" /></Link>
-        </div>
+        <StorySection/>
 
         {/* recent cause */}
 
-        <div className=" p-6" style={{backgroundImage: "url('https://cdn.pixabay.com/photo/2022/08/21/03/48/smile-7400381_1280.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} >
-          <h2 className="text-xl font-bold mb-4 underline text-white">Urgent Cause</h2>
-          <h2 className="text-3xl font-bold mb-4 text-slate-200">Send Children to School</h2>
-          <p className="text-lg  bg-slate-900 text-white p-4 opacity-50">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis tempora mollitia error, totam rem dolorum. Pariatur excepturi ex dolorem accusamus?Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, nihil! 
-          <Link to="/about" className="text-sky-400 hover:text-sky-500">  Learn More... <FaArrowCircleRight className="inline ml-4" /></Link>
-             </p>
-          
-          <div className="flex justify-between">
-            <div className=" flex-1 max-w-[80%]">
-              <div className="bg-slate-400  min-h-2 mt-4 flex items-center"> <div className="min-h-2 bg-orange-500 rounded-md w-[80%]"></div></div>
-              <h4 className="text-white font-semibold">80% Donated / $ 5,000 To Go</h4>
-            </div>
-            <Link to={"/donate"} className=" bg-sky-400 hover:bg-sky-500 text-white px-6 py-2 rounded mt-4" >Donate</Link>
-          </div>
-        </div>
+        <UrgentCauseSection/>
 
        </div>
       <CauseList />      

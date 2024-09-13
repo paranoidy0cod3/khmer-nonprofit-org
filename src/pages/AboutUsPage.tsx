@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FaUsers, FaLightbulb, FaHandHoldingHeart } from 'react-icons/fa';
 
 const AboutUsPage = () => {

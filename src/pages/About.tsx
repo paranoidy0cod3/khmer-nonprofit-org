@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FeatureCards, TopBanner } from '../components'
 
 import { FaHandsHelping } from 'react-icons/fa';

@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaArrowCircleRight } from 'react-icons/fa';
+// import { FaArrowCircleRight } from 'react-icons/fa';
 
 const CauseCard = ({
   image = "https://cdn.pixabay.com/photo/2013/04/02/19/53/children-99507_1280.jpg",

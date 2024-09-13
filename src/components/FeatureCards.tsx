@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { FaComment, FaHeart, FaInfoCircle, FaThumbsUp, FaTrophy, FaTruck } from 'react-icons/fa';
 
 const FeatureCards = () => {

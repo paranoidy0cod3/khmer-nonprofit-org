@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { CheckCircle, Share2, Mail, Twitter, Facebook } from 'lucide-react'
 
 interface ThankYouPageProps {
@@ -8,7 +8,7 @@ interface ThankYouPageProps {
 }
 
 export default function ThankYouPage({ donorName, amount, donationId }: ThankYouPageProps) {
-  const shareMessage = `I just donated $${amount} to support a great cause! Join me in making a difference.`
+  // const shareMessage = `I just donated $${amount} to support a great cause! Join me in making a difference.`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 to-teal-200 py-12 px-4 sm:px-6 lg:px-8">

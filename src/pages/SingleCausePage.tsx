@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Heart, Users, DollarSign, ArrowRight, Globe, Droplet, Sun, ChevronDown, Calendar, MapPin } from 'lucide-react'
+import  { useState } from 'react'
+import { Heart,  Calendar,  } from 'lucide-react'
 
 interface Cause {
   id: string

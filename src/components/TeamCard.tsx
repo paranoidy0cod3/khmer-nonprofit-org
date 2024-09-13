@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { LuClock9 } from "react-icons/lu";
-import { FaPen } from 'react-icons/fa';
+// import React from 'react'
+// import { Link } from 'react-router-dom'
+// import { LuClock9 } from "react-icons/lu";
+// import { FaPen } from 'react-icons/fa';
 
 interface TeamCardProps {
   detailLink: string;
@@ -9,7 +9,7 @@ interface TeamCardProps {
   title: string;
   description: string;
 }
-const TeamCard = ({detailLink, image, title, description, }: TeamCardProps) => {
+const TeamCard = ({ image, title, description, }: TeamCardProps) => {
   return (
     <div className="block">
       <div className="max-w-md mx-auto rounded-lg  md:p-4 p-2">
