@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import App from './App.tsx'
 import './index.css'
-import {HomePage, About, AboutUsPage, ContactPage, Home, NewsEventsPage, OurWorkPage, PartnershipsPage, SingleNewsEventPage, Dashboard, LoginPage, DonationPage, ThankYouPage, BlogPage, SingleBlogPost, CausesPage, SingleCausePage} from "./pages/index.ts"
+import { AboutUsPage, ContactPage, Home, NewsEventsPage, OurWorkPage, PartnershipsPage, SingleNewsEventPage, Dashboard, LoginPage, DonationPage, ThankYouPage, BlogPage, SingleBlogPost, CausesPage, SingleCausePage} from "./pages/index.ts"
 // import HomePage from './pages/HomePage.tsx'
 
 const isAuthenticated = () => {

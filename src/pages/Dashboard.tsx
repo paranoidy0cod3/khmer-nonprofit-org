@@ -148,6 +148,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       {/* Modal content */}
+      <h2>{title}</h2>
+      {children}
+      <button onClick={onClose}>Close</button>
     </div>
   )
 }
